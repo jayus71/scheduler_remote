@@ -1,0 +1,47 @@
+[tool.poetry]
+name = "edge-scheduler"
+version = "1.0.0"
+description = "边缘调度器API是一个基于FastAPI的Kubernetes调度扩展服务"
+authors = ["Edge Scheduler Team <edge-scheduler@example.com>"]
+readme = "README.md"
+packages = [
+    { include = "app" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.109.0"
+uvicorn = "^0.27.0"
+kubernetes = "^29.0.0"
+loguru = "^0.7.2"
+pydantic = "^2.5.3"
+requests = "^2.31.0"
+python-multipart = "^0.0.6"
+httpx = "^0.26.0"
+pydantic-settings = "^2.1.0"
+numpy = "^2.2.3"
+websockets = "^15.0.1"
+pulp = "^3.0.2"
+fastapi-offline = "^1.7.3"
+torch = "^2.2.0"
+joblib = "^1.3.2"
+scikit-learn = "^1.4.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.1.1"
+isort = "^5.13.2"
+flake8 = "^7.0.0"
+mypy = "^1.8.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3 

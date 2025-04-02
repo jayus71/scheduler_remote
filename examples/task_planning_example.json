@@ -1,0 +1,50 @@
+{
+  "plan_name": "ml-pipeline",
+  "description": "A machine learning pipeline with data preparation, training, and evaluation",
+  "tasks": [
+    {
+      "task_id": "task-1",
+      "name": "data-preparation",
+      "image": "python:3.9",
+      "dependencies": ["task-2", "task-3"],
+      "cpu": "200m",
+      "memory": "256Mi",
+      "commands": ["python", "-c"],
+      "args": ["print('Data preparation completed')"],
+      "env_vars": {"DEBUG": "true"},
+      "namespace": "default"
+    },
+    {
+      "task_id": "task-2",
+      "name": "model-training",
+      "image": "tensorflow/tensorflow:latest",
+      "dependencies": ["task-3"],
+      "cpu": "500m",
+      "memory": "1Gi",
+      "commands": ["python", "-c"],
+      "args": ["print('Model training completed')"],
+      "namespace": "default"
+    },
+    {
+      "task_id": "task-3",
+      "name": "model-evaluation",
+      "image": "python:3.9",
+      "dependencies": [],
+      "cpu": "300m",
+      "memory": "512Mi",
+      "commands": ["python", "-c"],
+      "args": ["print('Model evaluation completed')"],
+      "namespace": "default"
+    },
+    {
+      "task_id": "task-4",
+      "name": "model-deployment",
+      "image": "nginx:latest",
+      "dependencies": ["task-1"],
+      "cpu": "100m",
+      "memory": "128Mi",
+      "env_vars": {"ENVIRONMENT": "production"},
+      "namespace": "default"
+    }
+  ]
+} 
