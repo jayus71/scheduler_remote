@@ -27,6 +27,9 @@ ENV/
 .env
 .venv
 
+
+.pdf
+
 # IDE
 .idea/
 .vscode/
